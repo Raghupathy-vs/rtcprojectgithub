@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>We meet</title>
+<link href="/index.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+  <div id="controls">
+    <h2>We Meet!</h2>
+    <input id="username" placeholder="Enter your name" />
+    <input id="roomId" placeholder="Enter Meeting ID" />
+
+    <button id="startBtn">Start</button>
+    <button id="joinBtn">Connect</button>
+
+    <!-- Camera Dropdown Example -->
+    <div class="dropdown">
+      <button class="dropbtn">Camera ▾</button>
+      <div class="dropdown-content">
+        <button id="startCameraBtn">Start</button>
+        <button id="stopCameraBtn">Stop</button>
+      </div>
+    </div>  
+   <div class="dropdown">
+      <button class="dropbtn">Screen Share ▾</button>
+      <div class="dropdown-content">
+        <button id="shareBtn">Start</button>
+        <button id="stopShareBtn">Stop</button>
+      </div>
+    </div>
+    <button id="muteButton">Mute</button>
+    <button id="leaveCallBtn">Leave Call</button>
+    <button id="endCallBtn">End Call</button>
+  </div>
+
+  <h3>Room Activities</h3>
+  <div id="participants"></div>
+
+  <audio id="remoteAudio" autoplay></audio>
+
+  <h3>Screen Share View</h3>
+  <div id="screen-share-layout">
+    <!-- Large view on left -->
+ 
+
+    <!-- Thumbnails on right -->
+    <div id="thumbnail-sidebar">
+              <h3>Local Video</h3>
+              <video id="localVideo" class="thumbnail" autoplay muted playsinline></video>
+              <h3>Remote Video</h3>
+              <video id="remoteVideo" class="thumbnail" autoplay playsinline></video>
+              <h4>Local Screen Share</h4>
+              <video id="sharedScreen" class="thumbnail" autoplay playsinline muted></video>
+              <h4>Remote Screen Share</h4>
+              <video id="remoteScreen" class="thumbnail" autoplay playsinline muted></video>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script>
+    const sharedScreen = document.getElementById('sharedScreen');
+    const remoteScreen = document.getElementById('remoteScreen');
+    
+
+    // Click event to switch large display
+    sharedScreen.addEventListener('click', () => {
+      if (sharedScreen.srcObject) {
+        focusedScreen.srcObject = sharedScreen.srcObject;
+      }
+    });
+
+    remoteScreen.addEventListener('click', () => {
+      if (remoteScreen.srcObject) {
+        focusedScreen.srcObject = remoteScreen.srcObject;
+      }
+    });
+
+    function attachFocusOnClick(thumbnailId) {
+  const video = document.getElementById(thumbnailId);
+  video.addEventListener('click', () => {
+    if (video.srcObject) {
+      focusedScreen.srcObject = video.srcObject;
+    }
+  });
+}
+
+['localVideo', 'remoteVideo', 'sharedScreen', 'remoteScreen'].forEach(attachFocusOnClick);
+
+  </script>
+
+  <!-- Optional dropdown CSS -->
+  <style>
+    
+  </style>
+
+</body>
+</html>
