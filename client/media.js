@@ -1,4 +1,4 @@
-//media.js
+
 let localStream = null;
 let screenStream = null;
 
