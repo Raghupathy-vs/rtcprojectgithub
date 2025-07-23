@@ -1,4 +1,3 @@
-//main.js
 import { startLocalMedia, shareScreen, stopScreenShare, getLocalStream, startCamera  } from './media.js';
 import { createPeerConnection, closePeerConnection } from './webrtc.js';
 import { getElement, toggleMute } from './ui.js';
