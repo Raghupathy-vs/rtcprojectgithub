@@ -17,7 +17,7 @@ router.get('/rooms', (req, res) => {
       userCount: room.users.size,
       userIds: Array.from(room.users.keys()),
     });
-  }
+  }q
 
   res.json({ activeRooms: roomList });
 });
