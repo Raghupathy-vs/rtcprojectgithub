@@ -9,7 +9,7 @@ router.use((req, res, next) => {
 });
 
 router.get('/rooms', (req, res) => {
-  const roomList = [];                      // created to store details of all active rooms.
+  const roomList = [];                        // created to store details of all active rooms.
 
   for (const [roomId, room] of roomsRef.entries()) {
     roomList.push({
@@ -17,7 +17,7 @@ router.get('/rooms', (req, res) => {
       userCount: room.users.size,
       userIds: Array.from(room.users.keys()),
     });
-  }q
+  }
 
   res.json({ activeRooms: roomList });
 });

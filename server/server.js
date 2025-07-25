@@ -10,7 +10,6 @@ app.use(express.static('../client'));
 
 const rooms = new Map(); 
 
-
 const { router: apiRoutes, setRoomsMap } = require('./api');
 setRoomsMap(rooms);
 app.use('/api', apiRoutes);
