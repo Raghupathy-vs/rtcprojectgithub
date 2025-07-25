@@ -13,7 +13,7 @@ router.use((req, res, next) => {
 
 // GET /api/rooms - List all live rooms with users
 router.get('/rooms', (req, res) => {
-  const roomList = [];
+  const roomList = [];                      // created to store details of all active rooms.
 
   for (const [roomId, room] of roomsRef.entries()) {
     roomList.push({
