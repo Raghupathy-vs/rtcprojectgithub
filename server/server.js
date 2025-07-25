@@ -1,6 +1,7 @@
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
+
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
@@ -8,6 +9,10 @@ const io = new Server(server);
 app.use(express.static('../client'));
 
 const rooms = new Map(); 
+
+const { router: apiRoutes, setRoomsMap } = require('./api');
+setRoomsMap(rooms);
+app.use('/api', apiRoutes);
 
 io.on('connection', (socket) => {
   socket.on('join', ({ roomId, username }) => {
