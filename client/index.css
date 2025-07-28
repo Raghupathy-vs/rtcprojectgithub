@@ -128,8 +128,8 @@
       display: block;
     }
 .thumbnail {
-  width: 300px;      /* ✅ fixed width */
-  height: 200px;     /* ✅ fixed height */
+  width: 300px;     
+  height: 200px;     
   border: 2px solid #888;
   border-radius: 8px;
   cursor: pointer;
