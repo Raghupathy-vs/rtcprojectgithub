@@ -16,7 +16,6 @@
     <button id="startBtn">Start</button>
     <button id="joinBtn">Connect</button>
 
-    <!-- Camera Dropdown Example -->
     <div class="dropdown">
       <button class="dropbtn">Camera ▾</button>
       <div class="dropdown-content">
@@ -42,11 +41,8 @@
   <audio id="remoteAudio" autoplay></audio>
 
   <h3>Screen Share View</h3>
-  <div id="screen-share-layout">
-    <!-- Large view on left -->
- 
+  <div id="screen-share-layout"> 
 
-    <!-- Thumbnails on right -->
     <div id="thumbnail-sidebar">
               <h3>Local Video</h3>
               <video id="localVideo" class="thumbnail" autoplay muted playsinline></video>
@@ -67,7 +63,6 @@
     const remoteScreen = document.getElementById('remoteScreen');
     
 
-    // Click event to switch large display
     sharedScreen.addEventListener('click', () => {
       if (sharedScreen.srcObject) {
         focusedScreen.srcObject = sharedScreen.srcObject;
@@ -92,11 +87,5 @@
 ['localVideo', 'remoteVideo', 'sharedScreen', 'remoteScreen'].forEach(attachFocusOnClick);
 
   </script>
-
-  <!-- Optional dropdown CSS -->
-  <style>
-    
-  </style>
-
 </body>
 </html>
